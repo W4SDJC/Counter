@@ -10,27 +10,16 @@ tk.configure(bg='#595959')
 ttks = ttk.Style()
 ttks.configure("TButton", background='#595959')
 
-def Plus1(event=None):
+def Plus(x):
     num = count.get()
-    x = int(num) + 1
     count.delete(0, END)
-    count.insert(0, x)      # type: ignore
-def Plus5(event=None):
-    num = count.get()
-    ans = int(num) + 5
-    count.delete(0, END)
-    count.insert(0, ans)    # type: ignore
+    count.insert(0, int(num)+x)      # type: ignore
+     # type: ignore
 
-def Minus1(event=None):
+def Minus(x):
     num = count.get()
-    x = int(num) - 1
     count.delete(0, END)
-    count.insert(0, x)      # type: ignore
-def Minus5(event=None):
-    num = count.get()
-    ans = int(num) - 5
-    count.delete(0, END)
-    count.insert(0, ans)    # type: ignore
+    count.insert(0, int(num)-x)      # type: ignore
 
 def Copy():
     num = count.get()
@@ -57,14 +46,14 @@ fcenter = Frame(tk)
 count = ttk.Entry(fcenter, width=15)
 count.insert(END,'0')
 
-minus1 = ttk.Button(fcenter, text = "-", width=3,style="C.TButton", command= Minus1)
-tk.bind('-', Minus1)
-minus5 = ttk.Button(fcenter, text = "-5", width=3, command = Minus5)
-tk.bind('<Control-minus>', Minus5)
-plus1 = ttk.Button(fcenter, text="+", width=3, command = Plus1)
-tk.bind('+', Plus1)
-plus5 = ttk.Button(fcenter, text="+5", width=3, command = Plus5)
-tk.bind('<Control-+>', Plus5)
+minus1 = ttk.Button(fcenter, text = "-", width=3,style="C.TButton", command = lambda:Minus(1))
+tk.bind('-', lambda _:Minus(1))
+minus5 = ttk.Button(fcenter, text = "-5", width=3, command = lambda:Minus(5))
+tk.bind('<Control-minus>', lambda _:Minus(5))
+plus1 = ttk.Button(fcenter, text="+", width=3, command = lambda:Plus(1))
+tk.bind('+', lambda _:Plus(1))
+plus5 = ttk.Button(fcenter, text="+5", width=3, command = lambda:Plus(5))
+tk.bind('<Control-+>', lambda _:Plus(5))
 
 #Bottom buttons
 fbottom = Frame(tk)
