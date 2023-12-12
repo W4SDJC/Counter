@@ -50,6 +50,7 @@ minus1 = ttk.Button(fcenter, text = "-", width=3,style="C.TButton", command = la
 tk.bind('-', lambda _:Minus(1))
 minus5 = ttk.Button(fcenter, text = "-5", width=3, command = lambda:Minus(5))
 tk.bind('<Control-minus>', lambda _:Minus(5))
+
 plus1 = ttk.Button(fcenter, text="+", width=3, command = lambda:Plus(1))
 tk.bind('+', lambda _:Plus(1))
 plus5 = ttk.Button(fcenter, text="+5", width=3, command = lambda:Plus(5))
